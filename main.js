@@ -1,5 +1,5 @@
 let weather = {
-    "apiKey": "26d0f6d33cfba0a185cc0763a234d753",
+    apiKey: "26d0f6d33cfba0a185cc0763a234d753",
 fetchWeather : function(city){
     fetch(
         "https://api.openweathermap.org/data/2.5/weather?q=" 
@@ -7,16 +7,21 @@ fetchWeather : function(city){
         +"&units=metric&appid="
         + this.apiKey
     )
-    .then((response)=> response.json())
-    .then((data)=> this.displayWeather(data));
+    .then((response) => {
+      if (!response.ok) {
+        alert("No weather found.");
+        throw new Error("No weather found.");
+      }
+      return response.json();
+    })
+    .then((data) => this.displayWeather(data));
 },
 displayWeather: function(data){
 const {name} = data;
-const {icon, description} = data.weather[0];
+const {icon, description, main} = data.weather[0];
 const {speed} = data.wind;
-const {temp, humidity, temp_min} = data.main;
+const {temp, feels_like, temp_min, temp_max, pressure, humidity} = data.main;
 
-console.log(name, icon, description, temp, speed, humidity,country, temp_min);
 document.querySelector(".city").innerText= name;
 document.querySelector(".icon").src =
       "https://openweathermap.org/img/wn/" + icon + ".png";
@@ -26,9 +31,9 @@ document.querySelector(".icon").src =
     "Wind speed: " + speed + " km/h";
     document.querySelector(".humidity").innerText =
       "Humidity: " + humidity + "%";
+      document.querySelector(".main").innerText = main;
       document.querySelector(".country").innerText = country;
-      document.querySelector(".temp_min").innerText =
-       "Minimum Temperature: "+ temp_min + "°C";
+      document.querySelector(".pressure").innerText = pressure;
   },
   search: function () {
     this.fetchWeather(document.querySelector(".search-bar").value);

@@ -14,9 +14,9 @@ displayWeather: function(data){
 const {name} = data;
 const {icon, description} = data.weather[0];
 const {speed} = data.wind;
-const {temp, humidity} = data.main;
+const {temp, humidity, temp_min} = data.main;
 
-console.log(name, icon, description, temp, speed, humidity);
+console.log(name, icon, description, temp, speed, humidity,country, temp_min);
 document.querySelector(".city").innerText= name;
 document.querySelector(".icon").src =
       "https://openweathermap.org/img/wn/" + icon + ".png";
@@ -26,7 +26,9 @@ document.querySelector(".icon").src =
     "Wind speed: " + speed + " km/h";
     document.querySelector(".humidity").innerText =
       "Humidity: " + humidity + "%";
-    
+      document.querySelector(".country").innerText = country;
+      document.querySelector(".temp_min").innerText =
+       "Minimum Temperature: "+ temp_min + "°C";
   },
   search: function () {
     this.fetchWeather(document.querySelector(".search-bar").value);
@@ -45,4 +47,4 @@ document
     }
   });
 
-weather.fetchWeather("Istanbul");
+weather.fetchWeather("Baku");

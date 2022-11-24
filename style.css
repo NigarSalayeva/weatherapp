@@ -12,11 +12,12 @@ body{
 }
 .card{
     background-color: rgba(138, 130, 130, 0.3);
-    padding: 2em;
+    padding: 5em;
     border-radius: 20px;
-    max-width: 400px;
+    max-width: 800px;
     width: 100%;
-    margin: 2em;
+    margin: 5em;
+    height: 90%;
 }
 .search{
     display: flex;

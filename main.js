@@ -38,11 +38,11 @@ document.querySelector(".icon").src =
       "Humidity: " + humidity + "%";
       document.querySelector(".main").innerText = main;
       document.querySelector(".temp_min").innerText =
-      "Min temp: " + temp_min + "°C";
+      "Min temp: " + Math.floor(temp_min) + "°C";
       document.querySelector(".temp_max").innerText =
-      "Max temp: " + temp_max + "°C";
+      "Max temp: " + Math.floor(temp_max) + "°C";
       document.querySelector(".feels_like").innerText =
-      "Feels like: " + feels_like + "°C";
+      "Feels like: " + Math.floor(feels_like) + "°C";
       document.querySelector(".pressure").innerText =
       "Pressure: " + pressure + "hPa";
       document.querySelector(".country").innerText =
@@ -65,6 +65,7 @@ document.querySelector(".icon").src =
         "Wind direction: North "  + deg +"°";
       }
       document.querySelector(".date").innerText= date.toDateString();
+      document.querySelector(".time").innerText= date.toTimeString();
   },
   search: function () {
     this.fetchWeather(document.querySelector(".search-bar").value);

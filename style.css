@@ -5,25 +5,25 @@ body{
     align-items: center;
     background-color: floralwhite;
     height: 90vh;
-    background-image: url("photo-1584293406238-ad97f2ac6753.jpeg");
+    background-image: url("leaves+change.jpeg");
     background-size: 100%;
     font-family: 'Open Sans', sans-serif;
     font-size: 110%;
+    color: rgb(87, 16, 16);
 }
 hr{
     margin: 20px;
-    border: dashed rgba(43, 24, 24, 0.911);
+    border: dashed rgba(62, 25, 25, 0.911);
 }
 
 .card{
-    background-color: rgba(138, 130, 130, 0.3);
+    background-color: rgba(179, 176, 176, 0.645);
     padding: 5em;
     border-radius: 20px;
     max-width: 800px;
     width: 100%;
     margin: 5em;
     height: 90%;
-  
 }
 .search{
     display: flex;
@@ -53,3 +53,26 @@ input.search-bar{
    width: 170px;
    font-size: 90%;
 }
+
+.flex_property2{
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    float: right;
+    margin: 10px;
+    font-size: 85%;
+}
+.flex_property1{
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    float: left;
+    margin: 10px;
+    font-size: 85%;
+}
+
+
+
+

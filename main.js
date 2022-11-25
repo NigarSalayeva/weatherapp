@@ -20,7 +20,7 @@ displayWeather: function(data){
 const {name} = data;
 const {country} = data.sys;
 const {icon, description, main} = data.weather[0];
-const {speed} = data.wind;
+const {speed, deg} = data.wind;
 const {temp, feels_like, temp_min, temp_max, pressure, humidity} = data.main;
 
 document.querySelector(".city").innerText= name;
@@ -43,6 +43,24 @@ document.querySelector(".icon").src =
       "Pressure: " + pressure + "hPa";
       document.querySelector(".country").innerText =
       country;
+  
+      if(deg<= 90){
+        document.querySelector(".wind_direction").innerText =
+        "Wind direction: East " + deg +"°";
+      }
+      else if (deg<=180){
+        document.querySelector(".wind_direction").innerText =
+        "Wind direction: South "  + deg +"°";
+      }
+      else if( deg<=270){
+        document.querySelector(".wind_direction").innerText =
+        "Wind direction: West "  + deg +"°";
+      }
+      else{
+        document.querySelector(".wind_direction").innerText =
+        "Wind direction: North "  + deg +"°";
+      }
+     
   },
   search: function () {
     this.fetchWeather(document.querySelector(".search-bar").value);

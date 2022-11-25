@@ -18,6 +18,7 @@ fetchWeather : function(city){
 },
 displayWeather: function(data){
 const {name} = data;
+const {country} = data.sys;
 const {icon, description, main} = data.weather[0];
 const {speed} = data.wind;
 const {temp, feels_like, temp_min, temp_max, pressure, humidity} = data.main;
@@ -32,8 +33,16 @@ document.querySelector(".icon").src =
     document.querySelector(".humidity").innerText =
       "Humidity: " + humidity + "%";
       document.querySelector(".main").innerText = main;
-      document.querySelector(".country").innerText = country;
-      document.querySelector(".pressure").innerText = pressure;
+      document.querySelector(".temp_min").innerText =
+      "Min temp: " + temp_min + "°C";
+      document.querySelector(".temp_max").innerText =
+      "Max temp: " + temp_max + "°C";
+      document.querySelector(".feels_like").innerText =
+      "Feels like: " + feels_like + "°C";
+      document.querySelector(".pressure").innerText =
+      "Pressure: " + pressure + "hPa";
+      document.querySelector(".country").innerText =
+      country;
   },
   search: function () {
     this.fetchWeather(document.querySelector(".search-bar").value);

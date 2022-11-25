@@ -18,16 +18,20 @@ fetchWeather : function(city){
 },
 displayWeather: function(data){
 const {name} = data;
+const {dt} = data;
 const {country} = data.sys;
 const {icon, description, main} = data.weather[0];
 const {speed, deg} = data.wind;
 const {temp, feels_like, temp_min, temp_max, pressure, humidity} = data.main;
 
+const date = new Date(dt);
+
+
 document.querySelector(".city").innerText= name;
 document.querySelector(".icon").src =
       "https://openweathermap.org/img/wn/" + icon + ".png";
       document.querySelector(".description").innerText = description;
-    document.querySelector(".temp").innerText = temp + "°C";
+    document.querySelector(".temp").innerText = Math.floor(temp) + "°C";
     document.querySelector(".wind").innerText =
     "Wind speed: " + speed + " km/h";
     document.querySelector(".humidity").innerText =
@@ -60,7 +64,7 @@ document.querySelector(".icon").src =
         document.querySelector(".wind_direction").innerText =
         "Wind direction: North "  + deg +"°";
       }
-     
+      document.querySelector(".date").innerText= date.toDateString();
   },
   search: function () {
     this.fetchWeather(document.querySelector(".search-bar").value);

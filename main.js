@@ -26,7 +26,21 @@ const {temp, feels_like, temp_min, temp_max, pressure, humidity} = data.main;
 
 const date = new Date(dt);
 
-
+const countryName= document.querySelector('.country');
+const getCountry = async (country) => {
+  try {
+      const res = await fetch(`https://restcountries.com/v3.1/alpha/${country}`);
+      const data = await res.json();
+      if(data[0].altSpellings[1]){
+          countryName.innerText = data[0].altSpellings[1];
+      } 
+      else{
+          countryName.innerText = data[0].altSpellings[0];
+      }
+  } catch (e) {
+      alert('No country such as exists!', e);
+  }
+}
 document.querySelector(".city").innerText= name;
 document.querySelector(".icon").src =
       "https://openweathermap.org/img/wn/" + icon + ".png";
@@ -46,7 +60,7 @@ document.querySelector(".icon").src =
       document.querySelector(".pressure").innerText =
       "Pressure: " + pressure + "hPa";
       document.querySelector(".country").innerText =
-      country;
+      getCountry(country);
   
       if(deg<= 90){
         document.querySelector(".wind_direction").innerText =
@@ -64,8 +78,8 @@ document.querySelector(".icon").src =
         document.querySelector(".wind_direction").innerText =
         "Wind direction: North "  + deg +"°";
       }
-      document.querySelector(".date").innerText= date.toDateString();
-      document.querySelector(".time").innerText= date.toTimeString();
+      document.querySelector(".date").innerText= date.toLocaleDateString();
+      document.querySelector(".time").innerText= date.toLocaleTimeString();
   },
   search: function () {
     this.fetchWeather(document.querySelector(".search-bar").value);

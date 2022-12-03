@@ -16,7 +16,7 @@ fetchWeather : function(city){
     })
     .then((data) => this.displayWeather(data));
 },
-displayWeather: function(data){
+displayWeather: function (data) {
 const {name} = data;
 const {dt} = data;
 const {country} = data.sys;
@@ -85,7 +85,6 @@ document.querySelector(".icon").src =
     this.fetchWeather(document.querySelector(".search-bar").value);
   },
 };
-
 document.querySelector(".search button").addEventListener("click", function () {
   weather.search();
 });

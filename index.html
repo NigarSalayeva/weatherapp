@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Today</title>
+    <link rel="icon" type="image/x-icon" href="a99b40703646de53498d138881efdd7d.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/e19ab8fb17.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<style>
+    nav.sticky{
+    position: sticky;
+    top: 0;
+  }
+  nav{
+    /* padding: 0;
+    margin: 0; */
+    box-sizing: border-box;
+    list-style: none;
+    background: #021f06d4;
+    height: 80px;
+    width: 100%;
+    margin-bottom: 1px;
+  
+  }
+  label.logo{
+    color: wheat;
+    font-size: 30px;
+    line-height: 80px;
+    padding: 0 20px;
+    font-weight: bold;
+    
+  }
+  nav ul.a{
+    float:right;
+    margin-right:10px;
+    margin-top: 3px;
+  }
+  nav ul.a li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0;
+  
+  }
+  nav ul li a.n{
+    text-decoration: none;
+  color: wheat;
+  font-size: 17px;
+  padding: 10px 13px; 
+  border-radius: 3px;
+  text-transform: uppercase;
+  }
+  
+  a.n:hover{
+   
+  background: #809A6F;
+  }
+  
+  .checkbtn{
+    font-size: 30px;
+    color: wheat;
+    float: right;
+    line-height: 80px;
+    
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+  }  
+  #check{
+    display: none;
+  }
+
+   @media (max-width: 1100px)
+   {
+    .checkbtn{
+      display: block;
+    }
+  ul.a{
+    position: fixed;
+    width: 55%;
+    margin: auto;
+    height: 30vh;
+    background: #809A6F ;
+    left: 100%;
+    top: 100px;
+    align-items: center;
+    text-align: center;
+    transition: all .5s;
+  }
+  nav ul.a li{
+    display: block;
+  }
+  nav ul.a li a.n{
+    font-size: 20px;
+  }
+  a.n:hover{
+    background:none ;
+    color: #632626;
+  }
+  #check:checked ~ ul.a{
+    left: 20%;
+  }
+
+   }
+   .search{
+    display: none;
+  }
+</style>
+
+</head>
+
+<body>
+   
+   <div class="card">
+ 
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">Search by</label>
+        <ul class="a">
+          <li><a class="n" href="cityname.html">City Name</a></li>
+          <li><a class="n" href="long.html">Latitude and Longitude</a></li>
+      
+        </ul>
+      </nav>
+
+      <div class="search" class="search-bar">
+        <input type="text" class="search-bar" placeholder="Current Location">
+       
+        <button>&#128269;</button>
+    
+
+    </div>
+
+    <div class="weather">
+        <h2 class="city">Baku</h2>
+        <img src="" alt="" class="icon">
+        <h3 class="country">Azerbaijan</h3>
+        <h1 class="temp">51&#176;C</h1>
+        
+        <p class="date">Date</p>
+        <p class="time">13:50</p>
+        <h3 class="main">Clouds</h3>
+        <h3 class="description">Cloudy</h3>
+        
+        <hr>
+
+        <div class="flex_property1">
+        <div  class="temp_min">Minimum Temperature: 51&#176;C</div>
+        <div  class="temp_max">Maximum Temperature: 51&#176;C</div>
+        <div  class="feels_like">Feels like: 51&#176;C</div>
+    </div>
+        <div class="flex_property2">
+        <div  class="wind">Wind speed: 6.2 km/h</div>
+        <div  class="wind_direction">Wind direction: West</div>
+        <div  class="humidity">Humidity:60%</div>
+        <div  class="pressure">Pressure: 1016hPa</div>
+        
+  
+    </div>
+   </div>
+</div>
+     <script src="main.js"></script>
+</body>
+</html>

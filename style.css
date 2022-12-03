@@ -20,11 +20,12 @@ hr{
 
 .card{
     background-color: #cad8c37b;
-    padding: 5em;
+    padding: 2em 3em;
     border-radius: 20px;
     max-width: 600px;
+    min-width: 380px;
     width: 100%;
-    margin: 5em;
+    margin: 3em;
     height: 90%;
 }
 .search{
